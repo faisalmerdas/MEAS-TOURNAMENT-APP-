@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0E0E10;color:#F2F2F2;font-family:Barlow,system-ui,sans-serif}
+a{color:#E0202A}a:hover{color:#FF4A52}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<section style="padding:56px 64px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;align-items:center;gap:20px">
+<img src="assets/meas-logo.jpg" alt="MEAS Tournaments" style="width:64px;height:64px;border-radius:14px;object-fit:cover">
+<div>
+<div style="font-family:'Big Shoulders Display';font-weight:900;font-size:40px;letter-spacing:.02em;line-height:1">MEAS TOURNAMENTS — PLAYER APP</div>
+<div style="color:#9A9AA3;font-size:15px;margin-top:6px">Season 2026 · iOS · 11 screens, one direction</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:48px 40px;align-items:flex-start">
+
+<!-- 01 Onboarding -->
+<div data-screen-label="01 Onboarding" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">01 · Create Player ID</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;padding:76px 24px 44px;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="display:flex;align-items:center;gap:12px"><img src="assets/meas-logo.jpg" alt="" style="width:40px;height:40px;border-radius:10px;object-fit:cover"><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:18px;letter-spacing:.14em;color:#B9BCC4">MEAS TOURNAMENTS</div></div>
+<div style="margin-top:40px;font-family:'Big Shoulders Display';font-weight:900;font-size:56px;line-height:.92;letter-spacing:.01em">YOUR<br>PLAYER ID<br><span style="color:#E0202A">STARTS HERE.</span></div>
+<div style="margin-top:14px;color:#9A9AA3;font-size:15px;line-height:1.45">One ID across every MEAS event. Your results, rank and badges follow you all season.</div>
+<div style="margin-top:32px;display:flex;flex-direction:column;gap:18px">
+<div><div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9A9AA3;margin-bottom:8px">Gamertag</div><div style="height:52px;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:#141416;display:flex;align-items:center;padding:0 16px;font-size:17px;font-weight:600">RYN<span style="width:2px;height:22px;background:#E0202A;margin-left:2px"></span></div></div>
+<div><div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9A9AA3;margin-bottom:8px">Games you compete in</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ gameChips }}" as="g" hint-placeholder-count="5">
+<div style="height:38px;padding:0 14px;border-radius:10px;display:flex;align-items:center;font-size:14px;font-weight:600;background:{{ g.bg }};color:{{ g.color }};border:1px solid {{ g.border }}">{{ g.name }}</div>
+</sc-for>
+</div></div>
+<div><div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9A9AA3;margin-bottom:8px">Home region</div><div style="height:52px;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:#141416;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:16px"><span>Riyadh, Saudi Arabia</span><span style="color:#9A9AA3">⌵</span></div></div>
+</div>
+<div style="flex:1"></div>
+<div style="height:56px;border-radius:14px;background:#E0202A;display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.08em;color:#fff">GENERATE PLAYER ID</div>
+<div style="text-align:center;color:#9A9AA3;font-size:13px;margin-top:14px">Already registered at an event? <span style="color:#F2F2F2;font-weight:600">Claim your ID</span></div>
+</div>
+</x-import>
+</div>
+
+<!-- 02 Home -->
+<div data-screen-label="02 Home" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">02 · Home</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 20px">
+<div style="display:flex;align-items:center;justify-content:space-between">
+<div><div style="color:#9A9AA3;font-size:13px">Season 2026 · Event 6 of 10</div><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1">HEY, RYN</div></div>
+<div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2A2A30,#141416);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:800;font-size:16px;color:#B9BCC4">#14</div>
+</div>
+<sc-if value="{{ eventLive }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top:20px;border-radius:18px;padding:18px;background:#E0202A;color:#fff">
+<div style="display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700"><span style="width:8px;height:8px;border-radius:50%;background:#fff"></span>Live now · MEAS Open Riyadh</div>
+<div style="margin-top:8px;font-family:'Big Shoulders Display';font-weight:900;font-size:36px;line-height:1">TEKKEN 8 · ROUND 3</div>
+<div style="margin-top:6px;font-size:15px">vs KAZUYA_MO · Station 12 · called 2 min ago</div>
+<div style="margin-top:14px;height:44px;border-radius:11px;background:#fff;color:#E0202A;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px">Enter Event Mode</div>
+</div>
+</sc-if>
+<sc-if value="{{ eventUpcoming }}" hint-placeholder-val="{{ true }}">
+<div style="margin-top:20px;border-radius:18px;padding:18px;background:linear-gradient(160deg,#1E1E23 0%,#111113 100%);border:1px solid rgba(255,255,255,.1);position:relative;overflow:hidden">
+<div style="position:absolute;right:-30px;top:-30px;width:160px;height:160px;border-radius:50%;border:28px solid rgba(224,32,42,.18)"></div>
+<div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#E0202A;font-weight:700">Next event · You're registered</div>
+<div style="margin-top:8px;font-family:'Big Shoulders Display';font-weight:900;font-size:36px;line-height:1">MEAS OPEN<br>RIYADH</div>
+<div style="margin-top:8px;color:#B9BCC4;font-size:14px">Sat 3 – Sun 4 Oct · Riyadh Front</div>
+<div style="margin-top:16px;display:flex;gap:10px">
+<sc-for list="{{ countdown }}" as="c" hint-placeholder-count="3">
+<div style="flex:1;border-radius:12px;background:rgba(255,255,255,.06);padding:10px 0;text-align:center"><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:28px;line-height:1">{{ c.n }}</div><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9A9AA3;margin-top:2px">{{ c.l }}</div></div>
+</sc-for>
+</div>
+<div style="margin-top:14px;display:flex;gap:8px">
+<div style="height:34px;padding:0 12px;border-radius:9px;background:rgba(255,255,255,.08);display:flex;align-items:center;font-size:13px;font-weight:600">Tekken 8</div>
+<div style="height:34px;padding:0 12px;border-radius:9px;background:rgba(255,255,255,.08);display:flex;align-items:center;font-size:13px;font-weight:600">Pokémon TCG</div>
+<div style="height:34px;padding:0 12px;border-radius:9px;border:1px dashed rgba(255,255,255,.2);display:flex;align-items:center;font-size:13px;color:#9A9AA3">+ Add game</div>
+</div>
+</div>
+</sc-if>
+<div style="margin-top:24px;display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">CHAMPIONSHIP RACE</div><div style="font-size:13px;color:#9A9AA3">Top 32 qualify</div></div>
+<div style="margin-top:12px;border-radius:14px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:14px 16px">
+<div style="display:flex;justify-content:space-between;font-size:14px"><span><b style="font-weight:700">#14</b> · 1,240 pts</span><span style="color:#9A9AA3">Cut line #32 · 890 pts</span></div>
+<div style="margin-top:10px;height:6px;border-radius:3px;background:rgba(255,255,255,.08);position:relative"><div style="width:72%;height:100%;border-radius:3px;background:#E0202A"></div><div style="position:absolute;left:52%;top:-4px;width:2px;height:14px;background:#B9BCC4"></div></div>
+<div style="margin-top:8px;font-size:12px;color:#9A9AA3">Safe by 350 pts · 4 events remaining</div>
+</div>
+<div style="margin-top:24px;display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">ACTIVE CHALLENGES</div><div style="font-size:13px;color:#9A9AA3">3 of 6</div></div>
+<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ homeChallenges }}" as="ch" hint-placeholder-count="2">
+<div style="border-radius:14px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:12px 14px;display:flex;align-items:center;gap:12px">
+<div style="width:40px;height:40px;border-radius:10px;background:#1C1C20;display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:18px;color:#E0202A">{{ ch.icon }}</div>
+<div style="flex:1;min-width:0"><div style="font-weight:600;font-size:15px">{{ ch.title }}</div><div style="font-size:12px;color:#9A9AA3;margin-top:2px">{{ ch.sub }}</div></div>
+<div style="font-family:'Big Shoulders Display';font-weight:800;font-size:18px;color:#B9BCC4">{{ ch.pct }}</div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:24px;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">LAST RESULT</div>
+<div style="margin-top:12px;border-radius:14px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:14px 16px;display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-size:12px;color:#9A9AA3">JPEX Dubai · Tekken 8</div><div style="font-weight:700;font-size:17px;margin-top:2px">Top 8 · 5th</div></div>
+<div style="text-align:right"><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:26px;color:#E0202A;line-height:1">+180</div><div style="font-size:11px;color:#9A9AA3;letter-spacing:.08em">PTS</div></div>
+</div>
+</div>
+<div style="height:84px;padding:10px 20px 34px;background:#0E0E10;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-around;align-items:center">
+<sc-for list="{{ tabsHome }}" as="t" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;width:64px"><div style="width:22px;height:22px;border-radius:6px;background:{{ t.bg }}"></div><div style="font-size:11px;font-weight:600;color:{{ t.color }}">{{ t.label }}</div></div>
+</sc-for>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 03 Tournament -->
+<div data-screen-label="03 Tournament" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">03 · Tournament page</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto">
+<div style="height:300px;background:linear-gradient(180deg,rgba(10,10,11,0) 30%,#0A0A0B 100%),linear-gradient(135deg,#2A1113 0%,#151517 55%,#0A0A0B 100%);padding:70px 20px 20px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden">
+<div style="position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 2px,transparent 2px 18px)"></div>
+<div style="display:flex;justify-content:space-between;position:relative"><div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center">‹</div><div style="height:28px;padding:0 10px;border-radius:8px;background:#E0202A;display:flex;align-items:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700">Event 6 · Major</div></div>
+<div style="position:relative"><div style="font-size:13px;color:#B9BCC4;letter-spacing:.1em;text-transform:uppercase">Sat 3 – Sun 4 October</div><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:52px;line-height:.92;margin-top:4px">MEAS OPEN<br>RIYADH 2026</div><div style="margin-top:8px;font-size:14px;color:#9A9AA3">Riyadh Front Exhibition Centre · Hall 3</div></div>
+</div>
+<div style="padding:0 20px">
+<div style="display:flex;gap:24px;border-bottom:1px solid rgba(255,255,255,.1)">
+<div style="padding:10px 0;font-weight:700;font-size:15px;border-bottom:2px solid #E0202A">Games</div>
+<div style="padding:10px 0;font-weight:500;font-size:15px;color:#9A9AA3">Schedule</div>
+<div style="padding:10px 0;font-weight:500;font-size:15px;color:#9A9AA3">Venue</div>
+<div style="padding:10px 0;font-weight:500;font-size:15px;color:#9A9AA3">Rules</div>
+</div>
+<div style="margin-top:16px;display:flex;gap:10px">
+<div style="flex:1;border-radius:12px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:12px"><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em;text-transform:uppercase">Registered</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:26px;line-height:1.1">412</div></div>
+<div style="flex:1;border-radius:12px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:12px"><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em;text-transform:uppercase">Prize pool</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:26px;line-height:1.1">SAR 60K</div></div>
+<div style="flex:1;border-radius:12px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:12px"><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em;text-transform:uppercase">Points</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:26px;line-height:1.1;color:#E0202A">1.5×</div></div>
+</div>
+<div style="margin-top:20px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ tournamentGames }}" as="g" hint-placeholder-count="5">
+<div style="border-radius:14px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:14px;display:flex;align-items:center;gap:14px">
+<div style="width:46px;height:46px;border-radius:12px;background:{{ g.bg }};display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:18px;color:{{ g.fg }}">{{ g.abbr }}</div>
+<div style="flex:1;min-width:0"><div style="font-weight:700;font-size:16px">{{ g.name }}</div><div style="font-size:13px;color:#9A9AA3;margin-top:2px">{{ g.meta }}</div></div>
+<div style="height:32px;padding:0 12px;border-radius:9px;display:flex;align-items:center;font-size:13px;font-weight:700;background:{{ g.btnBg }};color:{{ g.btnFg }};border:1px solid {{ g.btnBorder }}">{{ g.cta }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="padding:12px 20px 40px;background:#0E0E10;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:10px;align-items:center">
+<div><div style="font-size:12px;color:#9A9AA3">Your pass</div><div style="font-weight:700;font-size:15px">2 games · Sat + Sun</div></div>
+<div style="flex:1"></div>
+<div style="height:48px;padding:0 22px;border-radius:12px;background:#E0202A;display:flex;align-items:center;font-family:'Big Shoulders Display';font-weight:800;font-size:19px;letter-spacing:.08em">ADD TO PASS</div>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 04 Event Mode -->
+<div data-screen-label="04 Event Mode" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">04 · Event Mode (live, on site)</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 20px">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#E0202A"><span style="width:8px;height:8px;border-radius:50%;background:#E0202A;box-shadow:0 0 0 4px rgba(224,32,42,.25)"></span>Event Mode</div>
+<div style="height:30px;padding:0 12px;border-radius:8px;background:#141416;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;font-size:12px;font-weight:600;color:#B9BCC4">Checked in · 09:42</div>
+</div>
+<div style="margin-top:8px;font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1">MEAS OPEN RIYADH · DAY 1</div>
+<div style="margin-top:22px;border-radius:20px;padding:20px;background:#141416;border:1px solid rgba(224,32,42,.5);box-shadow:0 0 0 1px rgba(224,32,42,.15),0 24px 48px rgba(0,0,0,.5)">
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#E0202A;font-weight:700">You're called · Report now</div><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:26px;color:#fff;line-height:1">08:14</div></div>
+<div style="margin-top:14px;display:flex;align-items:center;gap:12px">
+<div style="flex:1;text-align:center"><div style="width:64px;height:64px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#3A3A42,#1C1C20);border:2px solid #E0202A"></div><div style="margin-top:8px;font-weight:700;font-size:16px">RYN</div><div style="font-size:12px;color:#9A9AA3">Seed 11</div></div>
+<div style="text-align:center"><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:30px;color:#B9BCC4">VS</div><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em">FT2</div></div>
+<div style="flex:1;text-align:center"><div style="width:64px;height:64px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#2A2A30,#141416);border:2px solid rgba(255,255,255,.15)"></div><div style="margin-top:8px;font-weight:700;font-size:16px">KAZUYA_MO</div><div style="font-size:12px;color:#9A9AA3">Seed 6</div></div>
+</div>
+<div style="margin-top:16px;display:flex;gap:8px">
+<div style="flex:1;border-radius:12px;background:#0A0A0B;padding:10px;text-align:center"><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em;text-transform:uppercase">Game</div><div style="font-weight:700;font-size:15px;margin-top:2px">Tekken 8</div></div>
+<div style="flex:1;border-radius:12px;background:#0A0A0B;padding:10px;text-align:center"><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em;text-transform:uppercase">Round</div><div style="font-weight:700;font-size:15px;margin-top:2px">Winners R3</div></div>
+<div style="flex:1;border-radius:12px;background:#E0202A;padding:10px;text-align:center"><div style="font-size:11px;color:rgba(255,255,255,.8);letter-spacing:.1em;text-transform:uppercase">Station</div><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:24px;line-height:1;margin-top:2px">12</div></div>
+</div>
+<div style="margin-top:14px;height:50px;border-radius:12px;background:#F2F2F2;color:#0A0A0B;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px">I'm at the station</div>
+</div>
+<div style="margin-top:24px;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">YOUR DAY</div>
+<div style="margin-top:12px;display:flex;flex-direction:column">
+<sc-for list="{{ eventTimeline }}" as="e" hint-placeholder-count="5">
+<div style="display:flex;gap:14px;padding:10px 0">
+<div style="width:48px;font-size:13px;font-weight:600;color:{{ e.timeColor }};padding-top:2px">{{ e.time }}</div>
+<div style="display:flex;flex-direction:column;align-items:center"><div style="width:10px;height:10px;border-radius:50%;background:{{ e.dot }};margin-top:5px"></div><div style="flex:1;width:1px;background:rgba(255,255,255,.1);margin-top:4px"></div></div>
+<div style="flex:1;padding-bottom:6px"><div style="font-weight:600;font-size:15px;color:{{ e.color }}">{{ e.title }}</div><div style="font-size:13px;color:#9A9AA3;margin-top:2px">{{ e.sub }}</div></div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="height:84px;padding:10px 20px 34px;background:#0E0E10;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-around;align-items:center">
+<sc-for list="{{ tabsEvent }}" as="t" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;width:64px"><div style="width:22px;height:22px;border-radius:6px;background:{{ t.bg }}"></div><div style="font-size:11px;font-weight:600;color:{{ t.color }}">{{ t.label }}</div></div>
+</sc-for>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 05 Passport -->
+<div data-screen-label="05 Passport" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">05 · Player Passport</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 20px">
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1">PASSPORT</div><div style="font-size:13px;color:#9A9AA3">Share</div></div>
+<div style="margin-top:18px;border-radius:22px;padding:22px;background:linear-gradient(150deg,#26262C 0%,#141416 60%,#0F0F11 100%);border:1px solid rgba(255,255,255,.14);position:relative;overflow:hidden">
+<div style="position:absolute;right:-40px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(224,32,42,.35),transparent 70%)"></div>
+<div style="display:flex;justify-content:space-between;align-items:flex-start;position:relative">
+<div><div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B9BCC4">MEAS Player ID</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:26px;letter-spacing:.06em;margin-top:2px">MEAS-04821</div></div>
+<img src="assets/meas-logo.jpg" alt="" style="width:40px;height:40px;border-radius:10px;object-fit:cover">
+</div>
+<div style="margin-top:22px;display:flex;gap:16px;align-items:center;position:relative">
+<div style="width:84px;height:84px;border-radius:20px;background:linear-gradient(135deg,#3A3A42,#1C1C20);border:2px solid rgba(255,255,255,.2)"></div>
+<div><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:40px;line-height:1">RYN</div><div style="font-size:14px;color:#B9BCC4;margin-top:2px">Rayan Al-Sayed · Riyadh</div><div style="margin-top:8px;display:flex;gap:6px"><span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:#E0202A">Season 2026</span><span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.1)">Since 2024</span></div></div>
+</div>
+<div style="margin-top:22px;display:flex;justify-content:space-between;align-items:flex-end;position:relative">
+<div style="display:flex;gap:22px">
+<div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:28px;line-height:1">#14</div><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em;text-transform:uppercase">Overall</div></div>
+<div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:28px;line-height:1">1,240</div><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em;text-transform:uppercase">Points</div></div>
+<div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:28px;line-height:1">6</div><div style="font-size:11px;color:#9A9AA3;letter-spacing:.1em;text-transform:uppercase">Events</div></div>
+</div>
+<div style="width:64px;height:64px;border-radius:10px;background:#F2F2F2;padding:6px;display:grid;grid-template-columns:repeat(5,1fr);gap:2px">
+<div style="background:#0A0A0B"></div><div style="background:#0A0A0B"></div><div></div><div style="background:#0A0A0B"></div><div style="background:#0A0A0B"></div>
+<div style="background:#0A0A0B"></div><div></div><div style="background:#0A0A0B"></div><div></div><div style="background:#0A0A0B"></div>
+<div></div><div style="background:#0A0A0B"></div><div style="background:#0A0A0B"></div><div style="background:#0A0A0B"></div><div></div>
+<div style="background:#0A0A0B"></div><div></div><div style="background:#0A0A0B"></div><div></div><div style="background:#0A0A0B"></div>
+<div style="background:#0A0A0B"></div><div style="background:#0A0A0B"></div><div></div><div style="background:#0A0A0B"></div><div style="background:#0A0A0B"></div>
+</div>
+</div>
+</div>
+<div style="margin-top:24px;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">GAME RATINGS</div>
+<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ ratings }}" as="r" hint-placeholder-count="3">
+<div style="border-radius:14px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:12px 14px;display:flex;align-items:center;gap:12px">
+<div style="width:40px;height:40px;border-radius:10px;background:{{ r.bg }};display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:15px;color:{{ r.fg }}">{{ r.abbr }}</div>
+<div style="flex:1"><div style="font-weight:600;font-size:15px">{{ r.name }}</div><div style="font-size:12px;color:#9A9AA3;margin-top:2px">{{ r.record }}</div></div>
+<div style="text-align:right"><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:22px;line-height:1">{{ r.rank }}</div><div style="font-size:11px;color:#9A9AA3;letter-spacing:.08em">{{ r.tier }}</div></div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:24px;display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">RECENT BADGES</div><div style="font-size:13px;color:#9A9AA3">Trophy Room →</div></div>
+<div style="margin-top:12px;display:flex;gap:10px">
+<sc-for list="{{ recentBadges }}" as="b" hint-placeholder-count="4">
+<div style="flex:1;aspect-ratio:1;border-radius:14px;background:{{ b.bg }};border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:20px;color:{{ b.fg }}">{{ b.glyph }}</div>
+</sc-for>
+</div>
+</div>
+<div style="height:84px;padding:10px 20px 34px;background:#0E0E10;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-around;align-items:center">
+<sc-for list="{{ tabsPassport }}" as="t" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;width:64px"><div style="width:22px;height:22px;border-radius:6px;background:{{ t.bg }}"></div><div style="font-size:11px;font-weight:600;color:{{ t.color }}">{{ t.label }}</div></div>
+</sc-for>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 06 Rankings -->
+<div data-screen-label="06 Rankings" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">06 · Rankings</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 20px">
+<div style="font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1">RANKINGS</div>
+<div style="margin-top:14px;display:flex;gap:8px;overflow:hidden">
+<sc-for list="{{ rankTabs }}" as="t" hint-placeholder-count="4">
+<div style="height:34px;padding:0 14px;border-radius:9px;display:flex;align-items:center;font-size:13px;font-weight:600;white-space:nowrap;background:{{ t.bg }};color:{{ t.color }}">{{ t.label }}</div>
+</sc-for>
+</div>
+<div style="margin-top:22px;display:flex;align-items:flex-end;gap:10px">
+<div style="flex:1;text-align:center"><div style="width:56px;height:56px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#2A2A30,#141416);border:2px solid #B9BCC4"></div><div style="margin-top:8px;font-weight:700;font-size:14px">NOURA_X</div><div style="font-size:12px;color:#9A9AA3">1,980 pts</div><div style="margin-top:10px;height:56px;border-radius:12px 12px 0 0;background:#1C1C20;display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:24px;color:#B9BCC4">2</div></div>
+<div style="flex:1;text-align:center"><div style="width:68px;height:68px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#3A3A42,#1C1C20);border:2px solid #E0202A;box-shadow:0 0 24px rgba(224,32,42,.4)"></div><div style="margin-top:8px;font-weight:700;font-size:15px">OMAR.GG</div><div style="font-size:12px;color:#9A9AA3">2,310 pts</div><div style="margin-top:10px;height:80px;border-radius:12px 12px 0 0;background:#E0202A;display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:30px">1</div></div>
+<div style="flex:1;text-align:center"><div style="width:56px;height:56px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#2A2A30,#141416);border:2px solid #7A5A3A"></div><div style="margin-top:8px;font-weight:700;font-size:14px">SAIF_TK</div><div style="font-size:12px;color:#9A9AA3">1,870 pts</div><div style="margin-top:10px;height:44px;border-radius:12px 12px 0 0;background:#1C1C20;display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:24px;color:#9A7A5A">3</div></div>
+</div>
+<div style="height:1px;background:rgba(255,255,255,.12)"></div>
+<div style="margin-top:14px;display:flex;flex-direction:column">
+<sc-for list="{{ rankRows }}" as="r" hint-placeholder-count="6">
+<div style="display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;background:{{ r.bg }};border:1px solid {{ r.border }}">
+<div style="width:30px;font-family:'Big Shoulders Display';font-weight:800;font-size:20px;color:{{ r.numColor }}">{{ r.pos }}</div>
+<div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2A2A30,#141416);border:1px solid rgba(255,255,255,.12)"></div>
+<div style="flex:1;min-width:0"><div style="font-weight:600;font-size:15px">{{ r.name }}</div><div style="font-size:12px;color:#9A9AA3">{{ r.meta }}</div></div>
+<div style="text-align:right"><div style="font-weight:700;font-size:15px">{{ r.pts }}</div><div style="font-size:12px;color:{{ r.deltaColor }}">{{ r.delta }}</div></div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="padding:10px 20px 0;background:#0E0E10;border-top:1px solid rgba(224,32,42,.5)">
+<div style="display:flex;align-items:center;gap:12px;padding:6px 0 10px">
+<div style="width:30px;font-family:'Big Shoulders Display';font-weight:800;font-size:20px;color:#E0202A">14</div>
+<div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#3A3A42,#1C1C20);border:2px solid #E0202A"></div>
+<div style="flex:1"><div style="font-weight:700;font-size:15px">RYN <span style="color:#9A9AA3;font-weight:500">· you</span></div><div style="font-size:12px;color:#9A9AA3">Tekken 8 #9 · PTCG #41</div></div>
+<div style="text-align:right"><div style="font-weight:700;font-size:15px">1,240</div><div style="font-size:12px;color:#3DBE6E">▲ 3</div></div>
+</div>
+<div style="height:74px;padding:10px 0 34px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-around;align-items:center">
+<sc-for list="{{ tabsRank }}" as="t" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px;width:64px"><div style="width:22px;height:22px;border-radius:6px;background:{{ t.bg }}"></div><div style="font-size:11px;font-weight:600;color:{{ t.color }}">{{ t.label }}</div></div>
+</sc-for>
+</div>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 07 Season -->
+<div data-screen-label="07 Season" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">07 · Season overview</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 40px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div style="color:#9A9AA3;font-size:13px">Jan – Dec</div><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1">SEASON 2026</div></div><div style="text-align:right"><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1;color:#E0202A">6<span style="color:#9A9AA3;font-size:22px">/10</span></div><div style="font-size:12px;color:#9A9AA3;letter-spacing:.08em">EVENTS DONE</div></div></div>
+<div style="margin-top:18px;display:flex;gap:4px">
+<sc-for list="{{ seasonDots }}" as="d" hint-placeholder-count="10">
+<div style="flex:1;height:6px;border-radius:3px;background:{{ d }}"></div>
+</sc-for>
+</div>
+<div style="margin-top:20px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ seasonEvents }}" as="e" hint-placeholder-count="10">
+<div style="border-radius:14px;padding:14px;display:flex;align-items:center;gap:14px;background:{{ e.bg }};border:1px solid {{ e.border }};opacity:{{ e.opacity }}">
+<div style="width:44px;text-align:center"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9A9AA3">{{ e.mon }}</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:24px;line-height:1">{{ e.day }}</div></div>
+<div style="width:1px;height:36px;background:rgba(255,255,255,.1)"></div>
+<div style="flex:1;min-width:0"><div style="font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px">{{ e.name }}<span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:5px;background:{{ e.tagBg }};color:{{ e.tagFg }}">{{ e.tag }}</span></div><div style="font-size:12px;color:#9A9AA3;margin-top:2px">{{ e.sub }}</div></div>
+<div style="text-align:right"><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:22px;line-height:1;color:{{ e.ptsColor }}">{{ e.pts }}</div><div style="font-size:11px;color:#9A9AA3">{{ e.ptsLabel }}</div></div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 08 Trophy Room -->
+<div data-screen-label="08 Trophy Room" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">08 · Badges / Trophy Room</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 40px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1">TROPHY ROOM</div><div style="font-size:13px;color:#9A9AA3">11 / 28 earned</div></div>
+<div style="margin-top:20px;border-radius:20px;padding:20px;background:linear-gradient(150deg,#2A1113,#141416 70%);border:1px solid rgba(224,32,42,.4);display:flex;align-items:center;gap:16px">
+<div style="width:72px;height:72px;border-radius:18px;background:#E0202A;display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:30px;box-shadow:0 12px 32px rgba(224,32,42,.4)">T8</div>
+<div style="flex:1"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#E0202A;font-weight:700">Newest · JPEX Dubai</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:24px;line-height:1.05;margin-top:4px">TOP 8 FINISHER</div><div style="font-size:13px;color:#B9BCC4;margin-top:4px">Tekken 8 · 14 Sep 2026</div></div>
+</div>
+<div style="margin-top:24px;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">EVENT BADGES</div>
+<div style="margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+<sc-for list="{{ eventBadges }}" as="b" hint-placeholder-count="8">
+<div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;aspect-ratio:1;border-radius:16px;background:{{ b.bg }};border:1px solid {{ b.border }};display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:22px;color:{{ b.fg }}">{{ b.glyph }}</div><div style="font-size:11px;color:{{ b.labelColor }};text-align:center;line-height:1.2">{{ b.label }}</div></div>
+</sc-for>
+</div>
+<div style="margin-top:24px;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">PERFORMANCE</div>
+<div style="margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+<sc-for list="{{ perfBadges }}" as="b" hint-placeholder-count="8">
+<div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;aspect-ratio:1;border-radius:16px;background:{{ b.bg }};border:1px solid {{ b.border }};display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:22px;color:{{ b.fg }}">{{ b.glyph }}</div><div style="font-size:11px;color:{{ b.labelColor }};text-align:center;line-height:1.2">{{ b.label }}</div></div>
+</sc-for>
+</div>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 09 Challenges -->
+<div data-screen-label="09 Challenges" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">09 · Challenges</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 40px">
+<div style="font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1">CHALLENGES</div>
+<div style="margin-top:6px;color:#9A9AA3;font-size:14px">Season-long goals. Each one pays out points and a badge.</div>
+<div style="margin-top:18px;display:flex;gap:8px">
+<div style="height:34px;padding:0 14px;border-radius:9px;display:flex;align-items:center;font-size:13px;font-weight:600;background:#F2F2F2;color:#0A0A0B">Season</div>
+<div style="height:34px;padding:0 14px;border-radius:9px;display:flex;align-items:center;font-size:13px;font-weight:600;background:#141416;color:#9A9AA3">This event</div>
+<div style="height:34px;padding:0 14px;border-radius:9px;display:flex;align-items:center;font-size:13px;font-weight:600;background:#141416;color:#9A9AA3">Completed</div>
+</div>
+<div style="margin-top:18px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ challenges }}" as="c" hint-placeholder-count="6">
+<div style="border-radius:16px;background:#141416;border:1px solid {{ c.border }};padding:14px">
+<div style="display:flex;align-items:center;gap:12px">
+<div style="width:44px;height:44px;border-radius:12px;background:{{ c.iconBg }};display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:20px;color:{{ c.iconFg }}">{{ c.icon }}</div>
+<div style="flex:1;min-width:0"><div style="font-weight:700;font-size:16px">{{ c.title }}</div><div style="font-size:13px;color:#9A9AA3;margin-top:2px">{{ c.sub }}</div></div>
+<div style="text-align:right"><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:20px;line-height:1;color:{{ c.rewardColor }}">{{ c.reward }}</div><div style="font-size:10px;color:#9A9AA3;letter-spacing:.1em">PTS</div></div>
+</div>
+<div style="margin-top:12px;display:flex;align-items:center;gap:10px"><div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.08)"><div style="height:100%;border-radius:3px;background:{{ c.barColor }};width:{{ c.width }}"></div></div><div style="font-size:12px;font-weight:600;color:#B9BCC4;width:44px;text-align:right">{{ c.progress }}</div></div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 10 Rivalry -->
+<div data-screen-label="10 Rivalry" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">10 · Rivalry</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 40px">
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="width:36px;height:36px;border-radius:50%;background:#141416;display:flex;align-items:center;justify-content:center">‹</div><div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9A9AA3;font-weight:700">Rivalry · Tekken 8</div><div style="width:36px"></div></div>
+<div style="margin-top:24px;display:flex;align-items:center;justify-content:space-between">
+<div style="text-align:center;width:120px"><div style="width:88px;height:88px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#3A3A42,#1C1C20);border:3px solid #E0202A"></div><div style="margin-top:10px;font-family:'Big Shoulders Display';font-weight:900;font-size:26px;line-height:1">RYN</div><div style="font-size:12px;color:#9A9AA3">#9 · Tekken 8</div></div>
+<div style="text-align:center"><div style="font-family:'Big Shoulders Display';font-weight:900;font-size:56px;line-height:1;letter-spacing:.02em"><span style="color:#E0202A">4</span><span style="color:#3A3A42;margin:0 6px">–</span><span style="color:#B9BCC4">3</span></div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9A9AA3;margin-top:4px">Sets · all time</div></div>
+<div style="text-align:center;width:120px"><div style="width:88px;height:88px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#2A2A30,#141416);border:3px solid #B9BCC4"></div><div style="margin-top:10px;font-family:'Big Shoulders Display';font-weight:900;font-size:26px;line-height:1">KAZUYA_MO</div><div style="font-size:12px;color:#9A9AA3">#6 · Tekken 8</div></div>
+</div>
+<div style="margin-top:24px;border-radius:16px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:16px">
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9A9AA3;font-weight:700">Next meeting</div><div style="height:24px;padding:0 8px;border-radius:6px;background:#E0202A;font-size:11px;font-weight:700;letter-spacing:.1em;display:flex;align-items:center">LIKELY</div></div>
+<div style="margin-top:6px;font-weight:700;font-size:17px">MEAS Open Riyadh · Winners R3</div>
+<div style="font-size:13px;color:#9A9AA3;margin-top:2px">Same bracket quarter · both seeded top 12</div>
+</div>
+<div style="margin-top:24px;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">HEAD TO HEAD</div>
+<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ h2h }}" as="m" hint-placeholder-count="5">
+<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:#141416;border:1px solid rgba(255,255,255,.08)">
+<div style="width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:15px;background:{{ m.bg }};color:{{ m.fg }}">{{ m.res }}</div>
+<div style="flex:1"><div style="font-weight:600;font-size:14px">{{ m.event }}</div><div style="font-size:12px;color:#9A9AA3">{{ m.round }}</div></div>
+<div style="font-family:'Big Shoulders Display';font-weight:800;font-size:20px;color:#B9BCC4">{{ m.score }}</div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="border-radius:14px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9A9AA3">Season points gap</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:28px;line-height:1.1;color:#E0202A">−210</div><div style="font-size:12px;color:#9A9AA3">He's ahead</div></div>
+<div style="border-radius:14px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:14px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9A9AA3">Last 3 sets</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:28px;line-height:1.1">W W L</div><div style="font-size:12px;color:#9A9AA3">Momentum yours</div></div>
+</div>
+</div>
+</div>
+</x-import>
+</div>
+
+<!-- 11 Qualification -->
+<div data-screen-label="11 Qualification" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-size:13px;color:#9A9AA3;letter-spacing:.12em;text-transform:uppercase">11 · Championship Qualification</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+<div style="height:100%;display:flex;flex-direction:column;background:#0A0A0B;font-family:Barlow,system-ui,sans-serif;color:#F2F2F2">
+<div style="flex:1;overflow:auto;padding:70px 20px 40px">
+<div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9A9AA3;font-weight:700">MEAS Championship · 12–13 Dec</div>
+<div style="margin-top:6px;font-family:'Big Shoulders Display';font-weight:900;font-size:34px;line-height:1">QUALIFICATION</div>
+<div style="margin-top:20px;border-radius:22px;padding:22px;background:{{ qualBg }};border:1px solid {{ qualBorder }};position:relative;overflow:hidden">
+<div style="position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 2px,transparent 2px 16px)"></div>
+<div style="position:relative">
+<div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:{{ qualLabelColor }}">{{ qualLabel }}</div>
+<div style="margin-top:6px;font-family:'Big Shoulders Display';font-weight:900;font-size:48px;line-height:.95">{{ qualHeadline }}</div>
+<div style="margin-top:10px;font-size:14px;color:rgba(255,255,255,.8);line-height:1.4">{{ qualSub }}</div>
+</div>
+</div>
+<div style="margin-top:22px;display:flex;justify-content:space-between;font-size:13px"><span style="font-weight:700">#14 · 1,240 pts</span><span style="color:#9A9AA3">Cut #32 · 890 pts</span><span style="color:#9A9AA3">#1 · 2,310</span></div>
+<div style="margin-top:10px;height:10px;border-radius:5px;background:rgba(255,255,255,.08);position:relative">
+<div style="width:54%;height:100%;border-radius:5px;background:linear-gradient(90deg,#8A1218,#E0202A)"></div>
+<div style="position:absolute;left:38%;top:-5px;width:2px;height:20px;background:#F2F2F2"></div>
+<div style="position:absolute;left:38%;top:22px;transform:translateX(-50%);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#B9BCC4;white-space:nowrap">Cut line</div>
+</div>
+<div style="margin-top:44px;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">HOW YOU GET IN</div>
+<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ qualPaths }}" as="p" hint-placeholder-count="3">
+<div style="border-radius:14px;background:#141416;border:1px solid {{ p.border }};padding:14px;display:flex;gap:12px;align-items:center">
+<div style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Big Shoulders Display';font-weight:900;font-size:16px;background:{{ p.bg }};color:{{ p.fg }}">{{ p.n }}</div>
+<div style="flex:1"><div style="font-weight:700;font-size:15px">{{ p.title }}</div><div style="font-size:13px;color:#9A9AA3;margin-top:2px">{{ p.sub }}</div></div>
+<div style="font-size:12px;font-weight:700;color:{{ p.stateColor }}">{{ p.state }}</div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top:24px;font-family:'Big Shoulders Display';font-weight:800;font-size:22px;letter-spacing:.04em">REMAINING EVENTS</div>
+<div style="margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+<sc-for list="{{ remaining }}" as="r" hint-placeholder-count="4">
+<div style="border-radius:12px;background:#141416;border:1px solid rgba(255,255,255,.08);padding:12px 8px;text-align:center"><div style="font-size:11px;color:#9A9AA3;letter-spacing:.08em;text-transform:uppercase">{{ r.mon }}</div><div style="font-weight:700;font-size:13px;margin-top:4px;line-height:1.2">{{ r.name }}</div><div style="font-family:'Big Shoulders Display';font-weight:800;font-size:18px;color:#E0202A;margin-top:6px">{{ r.max }}</div></div>
+</sc-for>
+</div>
+</div>
+</div>
+</x-import>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;eventLive&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;State&quot;},&quot;qualified&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;State&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const live = this.props.eventLive ?? false;
+    const qualified = this.props.qualified ?? false;
+    const red = '#E0202A', steel = '#B9BCC4', muted = '#9A9AA3', s1 = '#141416', s2 = '#1C1C20';
+    const tabs = (active) => ['Home', 'Events', 'Rankings', 'Passport'].map(l => ({ label: l, bg: l === active ? red : '#3A3A42', color: l === active ? '#F2F2F2' : muted }));
+    const chip = (name, on) => ({ name, bg: on ? red : s1, color: on ? '#fff' : steel, border: on ? red : 'rgba(255,255,255,.14)' });
+    const badge = (glyph, label, earned, hot) => ({ glyph, label, bg: earned ? (hot ? red : s2) : '#0F0F11', border: earned ? (hot ? red : 'rgba(255,255,255,.16)') : 'rgba(255,255,255,.06)', fg: earned ? (hot ? '#fff' : steel) : '#3A3A42', labelColor: earned ? steel : '#4A4A52' });
+    return {
+      eventLive: live, eventUpcoming: !live,
+      gameChips: [chip('Tekken 8', true), chip('Pokémon TCG', true), chip('One Piece TCG', false), chip('EA FC 26', false), chip('Smash Ultimate', false)],
+      countdown: [{ n: '19', l: 'days' }, { n: '06', l: 'hrs' }, { n: '42', l: 'min' }],
+      homeChallenges: [
+        { icon: '5', title: 'Five events, one season', sub: 'Attend 5 of 10 events', pct: '6/5 ✓' },
+        { icon: 'W', title: 'Bracket breaker', sub: 'Beat a higher seed 3 times', pct: '2/3' },
+      ],
+      tabsHome: tabs('Home'), tabsEvent: tabs('Events'), tabsRank: tabs('Rankings'), tabsPassport: tabs('Passport'),
+      tournamentGames: [
+        { abbr: 'T8', name: 'Tekken 8', meta: 'Sat 11:00 · 128 cap · 96 in', bg: red, fg: '#fff', cta: 'In pass', btnBg: 'rgba(224,32,42,.15)', btnFg: red, btnBorder: 'rgba(224,32,42,.4)' },
+        { abbr: 'PT', name: 'Pokémon TCG', meta: 'Sat 14:00 · Swiss + Top 8 · 71 in', bg: '#F2C230', fg: '#0A0A0B', cta: 'In pass', btnBg: 'rgba(224,32,42,.15)', btnFg: red, btnBorder: 'rgba(224,32,42,.4)' },
+        { abbr: 'OP', name: 'One Piece TCG', meta: 'Sun 10:00 · Swiss · 54 in', bg: '#1E4FB8', fg: '#fff', cta: 'Add', btnBg: s2, btnFg: '#F2F2F2', btnBorder: 'rgba(255,255,255,.14)' },
+        { abbr: 'FC', name: 'EA FC 26', meta: 'Sun 12:00 · 64 cap · 63 in', bg: '#0FA36B', fg: '#fff', cta: '1 left', btnBg: s2, btnFg: '#F2F2F2', btnBorder: 'rgba(255,255,255,.14)' },
+        { abbr: 'SU', name: 'Smash Ultimate', meta: 'Sun 15:00 · 96 cap · 80 in', bg: '#B9BCC4', fg: '#0A0A0B', cta: 'Add', btnBg: s2, btnFg: '#F2F2F2', btnBorder: 'rgba(255,255,255,.14)' },
+      ],
+      eventTimeline: [
+        { time: '09:42', title: 'Checked in · Hall 3', sub: 'Badge scanned at gate B', dot: '#3DBE6E', color: muted, timeColor: muted },
+        { time: '11:00', title: 'Tekken 8 · Pools', sub: 'Won R1 2–0 · Won R2 2–1', dot: '#3DBE6E', color: muted, timeColor: muted },
+        { time: 'Now', title: 'Winners R3 · Station 12', sub: 'vs KAZUYA_MO', dot: red, color: '#F2F2F2', timeColor: red },
+        { time: '14:00', title: 'Pokémon TCG · Round 1', sub: 'Table assignment posted 13:45', dot: '#3A3A42', color: '#F2F2F2', timeColor: '#F2F2F2' },
+        { time: '18:30', title: 'Tekken 8 · Top 8', sub: 'Main stage · if you make it', dot: '#3A3A42', color: '#F2F2F2', timeColor: '#F2F2F2' },
+      ],
+      ratings: [
+        { abbr: 'T8', name: 'Tekken 8', record: '38–14 sets · 6 events', rank: '#9', tier: 'CONTENDER', bg: red, fg: '#fff' },
+        { abbr: 'PT', name: 'Pokémon TCG', record: '21–17 matches · 4 events', rank: '#41', tier: 'RISING', bg: '#F2C230', fg: '#0A0A0B' },
+        { abbr: 'FC', name: 'EA FC 26', record: '6–6 · 1 event', rank: '#88', tier: 'OPEN', bg: '#0FA36B', fg: '#fff' },
+      ],
+      recentBadges: [
+        { glyph: 'T8', bg: red, fg: '#fff' }, { glyph: 'JPX', bg: s2, fg: steel }, { glyph: '5', bg: s2, fg: steel }, { glyph: '★', bg: s2, fg: '#F2C230' },
+      ],
+      rankTabs: [
+        { label: 'Overall', bg: '#F2F2F2', color: '#0A0A0B' }, { label: 'Tekken 8', bg: s1, color: muted }, { label: 'Pokémon TCG', bg: s1, color: muted }, { label: 'One Piece', bg: s1, color: muted },
+      ],
+      rankRows: [4, 5, 6, 7, 8, 9].map((pos, i) => ({
+        pos, name: ['LAYLA.V', 'KAZUYA_MO', 'HMD_FC', 'ZED', 'MARWAN', 'TARIQ_OP'][i],
+        meta: ['PTCG #1 · Dubai', 'Tekken 8 #6 · Jeddah', 'EA FC #2 · Doha', 'Smash #1 · Manama', 'One Piece #3 · Riyadh', 'One Piece #5 · Kuwait'][i],
+        pts: ['1,790', '1,450', '1,410', '1,380', '1,300', '1,270'][i],
+        delta: ['▲ 1', '▼ 2', '▲ 4', '—', '▲ 2', '▼ 1'][i], deltaColor: ['#3DBE6E', red, '#3DBE6E', muted, '#3DBE6E', red][i],
+        bg: 'transparent', border: 'transparent', numColor: steel,
+      })),
+      seasonDots: ['#E0202A', '#E0202A', '#E0202A', '#E0202A', '#E0202A', '#E0202A', '#3A3A42', '#3A3A42', '#3A3A42', '#B9BCC4'],
+      seasonEvents: [
+        { mon: 'Jan', day: '18', name: 'Season Opener', tag: 'Regional', sub: 'Jeddah · Tekken 8 · 9th', pts: '+120', ptsLabel: 'earned', bg: s1, border: 'rgba(255,255,255,.08)', opacity: 1, tagBg: s2, tagFg: steel, ptsColor: '#F2F2F2' },
+        { mon: 'Feb', day: '22', name: 'MEAS Cup Doha', tag: 'Regional', sub: 'PTCG 17th · Tekken 8 13th', pts: '+140', ptsLabel: 'earned', bg: s1, border: 'rgba(255,255,255,.08)', opacity: 1, tagBg: s2, tagFg: steel, ptsColor: '#F2F2F2' },
+        { mon: 'Apr', day: '05', name: 'Spring Major', tag: 'Major', sub: 'Riyadh · Tekken 8 · 7th', pts: '+300', ptsLabel: 'earned', bg: s1, border: 'rgba(255,255,255,.08)', opacity: 1, tagBg: red, tagFg: '#fff', ptsColor: '#F2F2F2' },
+        { mon: 'May', day: '17', name: 'Manama Open', tag: 'Regional', sub: 'PTCG 9th', pts: '+180', ptsLabel: 'earned', bg: s1, border: 'rgba(255,255,255,.08)', opacity: 1, tagBg: s2, tagFg: steel, ptsColor: '#F2F2F2' },
+        { mon: 'Jun', day: '28', name: 'Kuwait Clash', tag: 'Regional', sub: 'EA FC 21st · Tekken 8 17th', pts: '+120', ptsLabel: 'earned', bg: s1, border: 'rgba(255,255,255,.08)', opacity: 1, tagBg: s2, tagFg: steel, ptsColor: '#F2F2F2' },
+        { mon: 'Sep', day: '13', name: 'JPEX Dubai', tag: 'Major', sub: 'Tekken 8 · Top 8 · 5th', pts: '+380', ptsLabel: 'earned', bg: s1, border: 'rgba(255,255,255,.08)', opacity: 1, tagBg: red, tagFg: '#fff', ptsColor: '#F2F2F2' },
+        { mon: 'Oct', day: '03', name: 'MEAS Open Riyadh', tag: 'Major', sub: 'Registered · 2 games', pts: '≤450', ptsLabel: 'available', bg: 'rgba(224,32,42,.08)', border: 'rgba(224,32,42,.5)', opacity: 1, tagBg: red, tagFg: '#fff', ptsColor: red },
+        { mon: 'Oct', day: '31', name: 'Abu Dhabi Showdown', tag: 'Regional', sub: 'Registration opens 6 Oct', pts: '≤300', ptsLabel: 'available', bg: s1, border: 'rgba(255,255,255,.08)', opacity: .7, tagBg: s2, tagFg: steel, ptsColor: muted },
+        { mon: 'Nov', day: '21', name: 'Muscat Finale', tag: 'Regional', sub: 'Last points event', pts: '≤300', ptsLabel: 'available', bg: s1, border: 'rgba(255,255,255,.08)', opacity: .7, tagBg: s2, tagFg: steel, ptsColor: muted },
+        { mon: 'Dec', day: '12', name: 'MEAS Championship', tag: 'Invite', sub: 'Top 32 per game · Riyadh', pts: '—', ptsLabel: 'finals', bg: s1, border: 'rgba(185,188,196,.35)', opacity: .7, tagBg: steel, tagFg: '#0A0A0B', ptsColor: muted },
+      ],
+      eventBadges: [
+        badge('JAN', 'Opener 26', true), badge('DOH', 'Doha Cup', true), badge('SPR', 'Spring Major', true), badge('MNM', 'Manama', true),
+        badge('KWT', 'Kuwait', true), badge('JPX', 'JPEX Dubai', true, true), badge('RUH', 'Open Riyadh', false), badge('AUH', 'Abu Dhabi', false),
+      ],
+      perfBadges: [
+        badge('T8', 'Top 8', true, true), badge('5', 'Five events', true), badge('★', 'Upset', true), badge('S', 'Seed 16+', true),
+        badge('2G', 'Two games', true), badge('T1', 'Champion', false), badge('10', 'Full season', false), badge('Q', 'Qualified', qualified, true),
+      ],
+      challenges: [
+        { icon: '5', title: 'Five events, one season', sub: 'Attend 5 of 10 season events', reward: '+150', progress: '6 / 5', width: '100%', barColor: '#3DBE6E', border: 'rgba(61,190,110,.4)', iconBg: 'rgba(61,190,110,.15)', iconFg: '#3DBE6E', rewardColor: '#3DBE6E' },
+        { icon: 'W', title: 'Bracket breaker', sub: 'Beat a higher seed 3 times', reward: '+200', progress: '2 / 3', width: '66%', barColor: red, border: 'rgba(255,255,255,.08)', iconBg: 'rgba(224,32,42,.15)', iconFg: red, rewardColor: '#F2F2F2' },
+        { icon: '2G', title: 'Double duty', sub: 'Top 16 in two games at one event', reward: '+250', progress: '0 / 1', width: '4%', barColor: red, border: 'rgba(255,255,255,.08)', iconBg: s2, iconFg: steel, rewardColor: '#F2F2F2' },
+        { icon: 'R', title: 'Settle the score', sub: 'Beat your rival in a bracket set', reward: '+100', progress: '1 / 1', width: '100%', barColor: '#3DBE6E', border: 'rgba(61,190,110,.4)', iconBg: 'rgba(61,190,110,.15)', iconFg: '#3DBE6E', rewardColor: '#3DBE6E' },
+        { icon: 'M', title: 'Major player', sub: 'Top 8 at any Major', reward: '+300', progress: '1 / 1', width: '100%', barColor: '#3DBE6E', border: 'rgba(61,190,110,.4)', iconBg: 'rgba(61,190,110,.15)', iconFg: '#3DBE6E', rewardColor: '#3DBE6E' },
+        { icon: '10', title: 'Ironman', sub: 'Attend every event this season', reward: '+500', progress: '6 / 10', width: '60%', barColor: red, border: 'rgba(255,255,255,.08)', iconBg: s2, iconFg: steel, rewardColor: '#F2F2F2' },
+      ],
+      h2h: [
+        { res: 'W', event: 'JPEX Dubai', round: 'Winners R4 · Sep 2026', score: '2–1', bg: red, fg: '#fff' },
+        { res: 'W', event: 'Kuwait Clash', round: 'Losers R3 · Jun 2026', score: '2–0', bg: red, fg: '#fff' },
+        { res: 'L', event: 'Spring Major', round: 'Winners QF · Apr 2026', score: '1–3', bg: s2, fg: steel },
+        { res: 'L', event: 'MEAS Cup Doha', round: 'Pools · Feb 2026', score: '0–2', bg: s2, fg: steel },
+        { res: 'W', event: 'Season Opener', round: 'Pools · Jan 2026', score: '2–1', bg: red, fg: '#fff' },
+      ],
+      qualBg: qualified ? 'linear-gradient(150deg,#1B5E38,#0E2A1B)' : 'linear-gradient(150deg,#8A1218,#3A0C0F)',
+      qualBorder: qualified ? '#3DBE6E' : red,
+      qualLabelColor: qualified ? '#7FE0A8' : '#FF8A90',
+      qualLabel: qualified ? 'Status · Qualified' : 'Status · On track',
+      qualHeadline: qualified ? 'YOU\'RE IN.' : 'SAFE BY 350 PTS',
+      qualSub: qualified ? 'Top 32 locked after Muscat. See you in Riyadh, 12–13 December.' : 'Hold #32 or better through Muscat. One more Top 16 finish locks it mathematically.',
+      qualPaths: [
+        { n: '1', title: 'Finish top 32 in season points', sub: 'Current #14 · cut is 890 pts', state: qualified ? 'DONE' : 'ON TRACK', stateColor: '#3DBE6E', bg: 'rgba(61,190,110,.15)', fg: '#3DBE6E', border: 'rgba(61,190,110,.4)' },
+        { n: '2', title: 'Win a Major', sub: 'Auto-qualifies · Open Riyadh is the last one', state: 'OPEN', stateColor: steel, bg: s2, fg: steel, border: 'rgba(255,255,255,.08)' },
+        { n: '3', title: 'Last Chance Qualifier', sub: 'Day 1 of the Championship · 8 spots', state: 'FALLBACK', stateColor: muted, bg: s2, fg: muted, border: 'rgba(255,255,255,.08)' },
+      ],
+      remaining: [
+        { mon: 'Oct', name: 'Open Riyadh', max: '450' }, { mon: 'Oct', name: 'Abu Dhabi', max: '300' }, { mon: 'Nov', name: 'Muscat', max: '300' }, { mon: 'Dec', name: 'LCQ', max: '—' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
