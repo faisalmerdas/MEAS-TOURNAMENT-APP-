@@ -52,6 +52,18 @@ export const gameChoices: GameChoice[] = [
 
 export const homeRegion = 'Riyadh, Saudi Arabia';
 
+/** The cities the season circuit visits, for the home-region picker. */
+export const homeRegions = [
+  'Riyadh, Saudi Arabia',
+  'Jeddah, Saudi Arabia',
+  'Dubai, United Arab Emirates',
+  'Abu Dhabi, United Arab Emirates',
+  'Doha, Qatar',
+  'Manama, Bahrain',
+  'Kuwait City, Kuwait',
+  'Muscat, Oman',
+] as const;
+
 /** Home — `countdown`. */
 export const countdown: CountdownPart[] = [
   { value: '19', label: 'days' },

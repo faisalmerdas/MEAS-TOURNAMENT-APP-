@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Screen, useScreenPadding } from '../src/components/Screen';
+import { RegionPicker } from '../src/components/RegionPicker';
 import { Chevron } from '../src/components/Texture';
-import { gameChoices, homeRegion, player } from '../src/data/mock';
+import { gameChoices, homeRegion, homeRegions, player } from '../src/data/mock';
 import { borders, colors } from '../src/theme/colors';
 import { ONBOARDING } from '../src/theme/layout';
 import { display, displayBold, fonts, leading, tracking } from '../src/theme/typography';
@@ -21,6 +22,8 @@ const LOGO = require('../assets/brand/meas-logo.jpg');
 export default function OnboardingScreen() {
   const padding = useScreenPadding();
   const [gamertag, setGamertag] = useState(player.gamertag);
+  const [region, setRegion] = useState<string>(homeRegion);
+  const [pickingRegion, setPickingRegion] = useState(false);
   const [selected, setSelected] = useState<Set<string>>(
     () => new Set(gameChoices.filter((c) => c.selected).map((c) => c.game.code)),
   );
@@ -108,12 +111,25 @@ export default function OnboardingScreen() {
 
         <View>
           <Text style={styles.fieldLabel}>Home region</Text>
-          <Pressable style={[styles.field, styles.fieldRow]} accessibilityRole="button">
-            <Text style={styles.fieldValue}>{homeRegion}</Text>
+          <Pressable
+            onPress={() => setPickingRegion(true)}
+            accessibilityRole="button"
+            accessibilityLabel={`Home region, ${region}`}
+            style={({ pressed }) => [styles.field, styles.fieldRow, pressed && styles.pressed]}
+          >
+            <Text style={styles.fieldValue}>{region}</Text>
             <Chevron size={14} color={colors.muted} />
           </Pressable>
         </View>
       </View>
+
+      <RegionPicker
+        visible={pickingRegion}
+        regions={homeRegions}
+        selected={region}
+        onSelect={setRegion}
+        onClose={() => setPickingRegion(false)}
+      />
 
       <View style={styles.spacer} />
 
