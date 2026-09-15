@@ -131,6 +131,12 @@ and checked through `react-native-web` in both states of the `eventLive` and
 SVG was measured against Chromium's own `repeating-linear-gradient` to confirm
 the stripe angle and 18pt period match.
 
+All ten routes were also checked for horizontal overflow at three widths — 375
+(iPhone SE), 402 (the design's own frame) and 440 (Pro Max) — with elements
+clipped by an `overflow: hidden` ancestor excluded. All three are clean. The
+design is drawn only at 402, so the narrow case is worth re-checking whenever a
+fixed width is added to a row.
+
 **No screen has been run on an iOS simulator or device.** react-native-web
 approximates but does not reproduce native text metrics, shadows or safe-area
 insets, so the first pass on a real device should pay attention to:

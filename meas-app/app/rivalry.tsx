@@ -1,4 +1,5 @@
 import { router } from 'expo-router';
+import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Screen } from '../src/components/Screen';
@@ -15,7 +16,12 @@ import {
   tracking,
 } from '../src/theme/typography';
 
-/** The design's fixed slot width for each side of the versus block. */
+/**
+ * The design's slot width for each side of the versus block. It is a cap rather
+ * than a fixed width: two 120pt slots plus the ~109pt score block need 349pt,
+ * which does not fit the 335pt of content width a 375pt phone offers, so the
+ * slots shrink below it on small screens.
+ */
 const VERSUS_SLOT = 120;
 const VERSUS_NAME_SIZE = 26;
 
@@ -125,13 +131,17 @@ export default function RivalryScreen() {
 /**
  * A gamertag set at the design's 26px overruns the 120pt slot from nine
  * characters up — in the prototype "KAZUYA_MO" runs clean off the right edge of
- * the frame. The slot keeps its 120pt so the row's geometry matches the design;
- * the name scales down to fit instead of escaping the screen.
+ * the frame. The name scales down to fit its slot instead of escaping it.
+ *
+ * The slot is measured rather than assumed: it is 120pt on the design's 402pt
+ * frame, but narrower on a small phone, where the row has to share less space.
  */
 function VersusName({ name }: { name: string }) {
-  const fontSize = fitDisplaySize(name, VERSUS_SLOT, VERSUS_NAME_SIZE);
+  const [slotWidth, setSlotWidth] = useState(VERSUS_SLOT);
+  const fontSize = fitDisplaySize(name, slotWidth, VERSUS_NAME_SIZE);
   return (
     <Text
+      onLayout={(event) => setSlotWidth(event.nativeEvent.layout.width)}
       style={[styles.versusName, display(fontSize)]}
       numberOfLines={1}
       adjustsFontSizeToFit
@@ -157,7 +167,7 @@ const styles = StyleSheet.create({
   topBarSpacer: { width: 36 },
 
   versus: { marginTop: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  versusSide: { width: VERSUS_SLOT, alignItems: 'center' },
+  versusSide: { flex: 1, maxWidth: VERSUS_SLOT, alignItems: 'center' },
   versusAvatar: { alignSelf: 'center' },
   versusName: { marginTop: 10, color: colors.text, textAlign: 'center', width: '100%' },
   versusRank: { fontFamily: fonts.body400, fontSize: 12, color: colors.muted },
